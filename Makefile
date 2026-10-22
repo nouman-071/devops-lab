@@ -40,3 +40,6 @@ ci: clean check test  ## the build server entry point
 help:  ## show this help
 	@grep -E '^[a-z][a-zA-Z_-]*:.*?## ' $(MAKEFILE_LIST) \
 	 | sed 's/:.*## /\t/' | column -t -s "$$(printf '\t')"
+
+count: build ## report how many words were built
+	@wc -w $(OUTPUTS) | tail -1
